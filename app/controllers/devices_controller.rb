@@ -6,7 +6,7 @@ class DevicesController < ApplicationController
   end
 
   def index_by_user
-    @user = current.user
+    @user = current_user
     @user.devices
   end
 
@@ -20,7 +20,7 @@ class DevicesController < ApplicationController
 
   def create
     @device = Device.new(device_params)
-    @device.user_id = current.user_id
+    @device.user_id = current_user_id
     if @device.save
       redirect_to devices_path
     else
@@ -30,12 +30,12 @@ class DevicesController < ApplicationController
 
   def edit
     # edit que les devices liees a son user_id
-    @user = current.user
+    @user = current_user
     @device = Device.find(params[:id])
     if @device.user_id == @user.id
       @device = Device.find(params[:id])
     else
-      render :show, notice: "You can't change a device from an other user"
+      render :show, alert: "You can't change a device from an other user"
     end
   end
 
@@ -45,13 +45,13 @@ class DevicesController < ApplicationController
   end
 
   def destroy
-    @user = current.user
+    @user = current_user
     @device = Device.find(params[:id])
     if @device.user_id == @user.id
       @device.destroy
       redirect_to devices_path
     else
-      render :index, notice: "You can't destroy a device from an other user"
+      render :index, flash.notice = "You can't destroy a device from an other user"
     end
   end
 

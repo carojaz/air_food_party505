@@ -1,0 +1,14 @@
+<div class="container">
+  <ul>
+    <% @devices.each do |device| %>
+      <li>
+      <%= device.name %>
+      <%= device.description %>
+      <%= device.price %>
+      <%= link_to "details", device_path(device)  %>
+      <%= link_to "edit", edit_device_path(device) %>
+      </li>
+    <% end %>
+  </ul>
+</div>
+
