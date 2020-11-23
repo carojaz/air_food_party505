@@ -36,3 +36,12 @@ d4.user_id = u3.id
 d4.category_id = c4.id
 d4.save!
 
+id: nil,
+ start_date: nil,
+ end_date: nil,
+ user_id: nil,
+ device_id: nil,
+ created_at: nil,
+ updated_at: nil,
+ state: "pending">
+

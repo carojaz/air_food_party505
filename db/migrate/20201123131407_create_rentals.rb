@@ -3,7 +3,7 @@ class CreateRentals < ActiveRecord::Migration[6.0]
     create_table :rentals do |t|
       t.date :start_date
       t.date :end_date
-      t.boolean :validate
+      t.boolean :validate, default: false
       t.references :user, null: false, foreign_key: true
       t.references :device, null: false, foreign_key: true
 
