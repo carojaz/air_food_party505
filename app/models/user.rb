@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   has_many :devices
   has_many :rentals
-  # has_one_attached :photo
+  has_one_attached :avatar
 
   validates :first_name, :last_name, :address, presence: true
 end
