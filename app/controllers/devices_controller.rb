@@ -42,6 +42,7 @@ class DevicesController < ApplicationController
   def update
     @device = Device.find(params[:id])
     @device.update(device_params)
+    redirect_to devices_path
   end
 
   def destroy
@@ -49,7 +50,7 @@ class DevicesController < ApplicationController
     @device = Device.find(params[:id])
     if @device.user_id == @user.id
       @device.destroy
-      redirect_to devices_path
+      redirect_to devices_path(@device)
     else
       render :index, flash.notice = "You can't destroy a device from an other user"
     end
@@ -58,6 +59,6 @@ class DevicesController < ApplicationController
   private
 
   def device_params
-    params.require(:device).permit(:name, :description, :price, :pictures)
+    params.require(:device).permit(:name, :description, :price, pictures: [])
   end
 end

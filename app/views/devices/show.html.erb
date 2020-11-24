@@ -4,3 +4,5 @@
   <%= @device.price %>
   <%= @device.user_id %>
 </div>
+
+<%= link_to "new rental", new_rentals_path(@device, @rental) %>

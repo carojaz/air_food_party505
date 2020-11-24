@@ -20,7 +20,7 @@ class RentalsController < ApplicationController
   end
 
   def new
-    @device = Device.find(params[:id])
+    @device = Device.find(params[:format])
     @rental = Rental.new
   end
 
@@ -28,7 +28,10 @@ class RentalsController < ApplicationController
     @user = current_user
     @rental = Rental.new(rental_params)
     @rental.user_id = @user.id
-    @rental.device_id = @device.id
+    @rental.device_id = params[:rental][:device_id]
+    @rental.save
+    redirect_to devices_path
+    # @rental.device_id = @device.id
     # state = pending
   end
 
