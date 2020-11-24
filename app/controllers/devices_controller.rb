@@ -30,13 +30,13 @@ class DevicesController < ApplicationController
 
   def edit
     # edit que les devices liees a son user_id
-    @user = current_user
+    # @user = current_user
     @device = Device.find(params[:id])
-    if @device.user_id == @user.id
-      @device = Device.find(params[:id])
-    else
-      render :show, alert: "You can't change a device from an other user"
-    end
+    # if @device.user_id == @user.id
+    # @device = Device.find(params[:id])
+    # else
+    # render :show, alert: "You can't change a device from an other user"
+    # end
   end
 
   def update
@@ -46,14 +46,14 @@ class DevicesController < ApplicationController
   end
 
   def destroy
-    @user = current_user
+    # @user = current_user
     @device = Device.find(params[:id])
-    if @device.user_id == @user.id
-      @device.destroy
-      redirect_to devices_path(@device)
-    else
-      render :index, flash.notice = "You can't destroy a device from an other user"
-    end
+    # if @device.user_id == @user.id
+    @device.destroy
+    redirect_to devices_path(@device)
+    # else
+    # render :index, flash.notice = "You can't destroy a device from an other user"
+    # end
   end
 
   private
