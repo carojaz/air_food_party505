@@ -1,0 +1,21 @@
+<div class="banner-detail" >
+  <div class="banner-content">
+    <h1>My reservation</h1>
+  </div>
+</div>
+
+<div class="container description-rental">
+  <h2><%= @rental.device.name %></h2>
+  <div class="description-look"> 
+  <%= @rental.device.description %>
+  <%= @rental.device.price %>
+  <p>Start date :</p><%= @rental.start_date.strftime('%d/%m/%Y') %>
+  <p>End date :</p><%= @rental.end_date.strftime('%d/%m/%Y') %>
+  </div>
+  <p>State :</p>
+  <%= @rental.state %>
+  <%= link_to "Validate", validated_rental_path, class:"btn btn-primary", method: :patch %>
+  <%= link_to "Refuse", refused_rental_path, class:"btn btn-danger", method: :patch %>
+</div>
+
+

@@ -12,8 +12,8 @@ class RentalsController < ApplicationController
 
   def show
     @user = current_user
+    @rental = Rental.find(params[:id])
     if @rental.user_id == @user.id || Device.find(@rental.device_id).user_id == @user.id
-      @rental = Rental.find(params[:id])
     else
       render rentals_path, notice: "You are not allowed to enter this"
     end
@@ -37,14 +37,14 @@ class RentalsController < ApplicationController
 
   def validated
     rental = Rental.find(params[:id])
-    rental.update(state: "validate")
-    redirect_to rentals_path
+    rental.update(state: "validated")
+    redirect_to rental_path(rental)
   end
   
   def refused
     rental = Rental.find(params[:id])
-    rental.update(state: "refuse")
-    redirect_to rentals_path
+    rental.update(state: "refused")
+    redirect_to rental_path(rental)
   end
 
   private
