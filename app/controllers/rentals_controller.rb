@@ -35,6 +35,18 @@ class RentalsController < ApplicationController
     # state = pending
   end
 
+  def validated
+    rental = Rental.find(params[:id])
+    rental.update(state: "validate")
+    redirect_to rentals_path
+  end
+  
+  def refused
+    rental = Rental.find(params[:id])
+    rental.update(state: "refuse")
+    redirect_to rentals_path
+  end
+
   private
 
   def rental_params
