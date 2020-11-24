@@ -12,4 +12,25 @@ class Account::RentalsController < ApplicationController
     #   @rentals_on_user_device << Rental.where(device_id: device.id)
     # end
   end
+
+  # def show
+  # @user = current_user
+  # @rental = Rental.find(params[:id])
+  #   if @rental.user_id == @user.id || Device.find(@rental.device_id).user_id == @user.id
+  #   else
+  #     render rentals_path, notice: "You are not allowed to enter this"
+  #   end
+  # end
+
+  def validated
+    rental = Rental.find(params[:id])
+    rental.update(state: "validated")
+    redirect_to account_rentals_path
+  end
+
+  def refused
+    rental = Rental.find(params[:id])
+    rental.update(state: "refused")
+    redirect_to account_rentals_path
+  end
 end
