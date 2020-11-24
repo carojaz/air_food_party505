@@ -1,0 +1,13 @@
+<div class="container">
+  <%= simple_form_for @device do |f| %>
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :price %>
+    <%= f.input :description %>
+    <%= f.input :pictures, as: :file, input_html: { multiple: true } %>
+  </div>
+  <div class="form-actions">
+    <%= f.submit 'Add a device', class: 'btn btn-primary' %>
+  </div>
+  <% end %>
+</div>
