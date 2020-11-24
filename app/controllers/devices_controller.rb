@@ -20,7 +20,7 @@ class DevicesController < ApplicationController
 
   def create
     @device = Device.new(device_params)
-    @device.user_id = current_user_id
+    @device.user_id = current_user.id
     if @device.save
       redirect_to devices_path
     else
@@ -59,6 +59,6 @@ class DevicesController < ApplicationController
   private
 
   def device_params
-    params.require(:device).permit(:name, :description, :price, pictures: [])
+    params.require(:device).permit(:name, :description, :price, :category_id, pictures: [])
   end
 end
