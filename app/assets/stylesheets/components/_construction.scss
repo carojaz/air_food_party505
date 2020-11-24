@@ -1,0 +1,17 @@
+// Specific CSS for your home-page
+.construction {
+  background-image: url("https://images.unsplash.com/photo-1590479773265-7464e5d48118?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+
+& h1, h2 {
+  color: white;
+}
+
+  & .card-contruction {
+    padding-top: 65vh;
+    text-align: center;
+  }
+}
+
