@@ -1,16 +1,5 @@
 class RentalsController < ApplicationController
 
-  def index
-    @user = current_user
-    # afficher les rentals de mon user actuel :
-    # 2 possibilites user de la rental ou user de la device
-    # reservations qu'on a faite
-    @rentals_done = Rental.where(user_id: @user.id)
-    # reservation sur nos appareils
-
-    @rentals_on_user_device = Rental.where(@rental.device_id.user_id == @user.id)
-  end
-
   def show
     @user = current_user
     if @rental.user_id == @user.id || Device.find(@rental.device_id).user_id == @user.id
