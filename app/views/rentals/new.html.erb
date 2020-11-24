@@ -1,9 +1,9 @@
 <div class="container">
-  <%= simple_form_for(@rental) do |f| %>
+  <%= simple_form_for([@device, @rental]) do |f| %>
   <div class="form-inputs">
     <%= f.input :start_date %>
     <%= f.input :end_date %>
-    <p class="d-none"><%= f.input_field :device_id, value: @device.id %></p>
+    <!-- <p class="d-none"><%= f.input_field :device_id, value: @device.id %></p> -->
   </div>
   <div class="form-actions">
     <%= f.submit 'New rental', class: 'btn btn-primary' %>

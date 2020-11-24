@@ -8,6 +8,7 @@
       <%= link_to "details", device_path(device)  %>
       <%= link_to "edit", edit_device_path(device) %>
       <%= link_to 'destroy', device_path(device), method: :delete, data: { confirm: 'Are you sure?' } %>
+      <%= link_to "rentals", device_rentals_path(device) %>
       </li>
     <% end %>
   </ul>
