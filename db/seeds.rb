@@ -16,9 +16,13 @@ c2 = Category.create!(name: "Pierrade")
 c3 = Category.create!(name: "Crêpe party")
 c4 = Category.create!(name: "PopCorn party")
 
+puts "#{Category.count} categories created"
+
 u1 = User.create!(email: "jasinski_caroline@yahoo.fr", password: "azertyazerty", first_name: "Caroline", last_name: "Jasinski", description: nil, address: "118 rue André Deplace 59830 Cysoing")
 u2 = User.create!(email: "nicholas04claessens@yahoo.com", password: "azertyazerty", first_name: "Nicholas", last_name: "Claessens", description: nil, address: "1 rue Thier Saive 4608 Warsage")
 u3 = User.create!(email: "chompum.aphisit@hotmail.fr", password: "azertyazerty", first_name: "Aphisit", last_name: "Chompum", description: nil, address: "163 rue Auber 59200 Tourcoing")
+
+puts "#{User.count} users created"
 
 d1 = Device.new(name: "Raclette Caro", description: "LA plus belle des raclettes à votre table!", price: 500)
 d1.user_id = u1.id
@@ -37,6 +41,25 @@ d4.user_id = u3.id
 d4.category_id = c4.id
 d4.save!
 
+puts "#{Device.count} devices created"
+
+r1 = Rental.new(start_date: "2020-11-24", end_date: "2020-11-27", user_id: u1.id, device_id: d2.id)
+r1.save!
+r2 = Rental.new(start_date: "2020-11-13", end_date: "2020-11-14", user_id: u1.id, device_id: d3.id)
+r2.save!
+r3 = Rental.new(start_date: "2020-12-09", end_date: "2020-12-10", user_id: u2.id, device_id: d1.id)
+r3.save!
+r4 = Rental.new(start_date: "2020-12-03", end_date: "2020-12-04", user_id: u2.id, device_id: d4.id)
+r4.save!
+r5 = Rental.new(start_date: "2020-12-01", end_date: "2020-12-02", user_id: u3.id, device_id: d1.id)
+r5.save!
+r6 = Rental.new(start_date: "2020-12-25", end_date: "2020-12-26", user_id: u3.id, device_id: d2.id)
+r6.save!
+
+puts "#{Rental.count} rentals created"
+
+
+#<Rental id: 2, start_date: "2020-11-24", end_date: "2020-11-27", user_id: 4, device_id: 7, created_at: "2020-11-24 17:27:29", updated_at: "2020-11-24 17:27:29", state: "pending">]>
 
 # id: nil,
 #  start_date: nil,
