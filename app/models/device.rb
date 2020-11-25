@@ -4,5 +4,5 @@ class Device < ApplicationRecord
   has_many :rentals, dependent: :destroy
 
   has_one_attached :photo
-  validates :name, :description, :price, presence: true
+  validates :name, :description, :price, :photo, presence: true
 end

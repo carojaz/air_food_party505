@@ -26,32 +26,32 @@ u3 = User.create!(email: "chompum.aphisit@hotmail.fr", password: "azertyazerty",
 
 puts "#{User.count} users created"
 
-d1 = Device.new(name: "Raclette Caro", description: "LA plus belle des raclettes à votre table!", price: 500)
+d1 = Device.new(name: "Raclette Caro", description: "LA plus belle des raclettes à votre table pour déguster le meilleur fromage du monde en mode traditionnel!", price: 500)
 d1.user_id = u1.id
 d1.category_id = c1.id
-file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
-d1.photo.attach(io: file, filename: 'u1.png', content_type: 'image/png')
+file = URI.open('https://www.alpha-evenement.fr/608-large_default/appareil-a-raclette-electrique-25.jpg')
+d1.photo.attach(io: file, filename: 'd1.jpg', content_type: 'image/jpg')
 d1.save!
 
-d2 = Device.new(name: "Pierrade de ouf de Nicho", description: "La meilleure viande grillée du monde", price: 400)
+d2 = Device.new(name: "Pierrade de ouf de Nicho", description: "Cette pierrade cuit avec chaleur et tendresse vos viandes, poissons et même les légumes!", price: 400)
 d2.user_id = u2.id
 d2.category_id = c2.id
-file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
-d2.photo.attach(io: file, filename: 'u1.png', content_type: 'image/png')
+file = URI.open('https://img.cuisineaz.com/680x357/2017-06-11/i128169-.jpeg')
+d2.photo.attach(io: file, filename: 'd2.jpeg', content_type: 'image/jpeg')
 d2.save!
 
-d3 = Device.new(name: "Crêpe de dingue d'Aphisit", description: "Votre meilleure crêpe!...surtout avec du Nutella!", price: 700.50)
+d3 = Device.new(name: "Crêpe de dingue d'Aphisit", description: "Cette crêpe party réalise vos meilleures crêpes!...surtout avec du Nutella!", price: 700.50)
 d3.user_id = u3.id
 d3.category_id = c3.id
-file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
-d3.photo.attach(io: file, filename: 'u1.png', content_type: 'image/png')
+file = URI.open('http://www.leboucestgarni.fr/assets/img/tefal-crep-party-utilisation_c64e13bd2197d408d169f4865fb946da.jpg')
+d3.photo.attach(io: file, filename: 'd3.jpg', content_type: 'image/jpg')
 d3.save!
 
-d4 = Device.new(name: "PopCorn tous ensemble d'Aphisit", description: "Anti-covid, mangez des pop corn tous ensemble!!", price: 200)
+d4 = Device.new(name: "PopCorn tous ensemble d'Aphisit", description: "Anti-covid, mangez des pop corn tous ensemble!! Viva la pop'fiesta!! ", price: 200)
 d4.user_id = u3.id
 d4.category_id = c4.id
-file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
-d4.photo.attach(io: file, filename: 'u1.png', content_type: 'image/png')
+file = URI.open('https://www.lavantgardiste.com/19147-large_default/machine-a-pop-corn-deluxe.jpg')
+d4.photo.attach(io: file, filename: 'd4.jpg', content_type: 'image/jpg')
 d4.save!
 
 puts "#{Device.count} devices created"
