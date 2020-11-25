@@ -7,13 +7,14 @@ class RentalsController < ApplicationController
 
   def create
     @user = current_user
+    @device = Device.find(params[:device_id])
     @rental = Rental.new(rental_params)
     @rental.user_id = @user.id
     @rental.device_id = params[:device_id]
     if @rental.save
       redirect_to account_rentals_path
     else
-      redirect_to devices_path, notice: "No rental done. Please enter all details"
+      render :new
     end
     # @rental.device_id = @device.id
     # state = pending
