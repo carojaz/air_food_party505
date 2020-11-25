@@ -13,6 +13,52 @@
 @import "pages/index";
 @import "flatpickr/dist/flatpickr";
 
-.container {
-  position: relative;
+// .container {
+//   position: relative;
+// }
+h1 {
+  font-family: $font1;
 }
+
+body {
+  font-family: $font1;
+}
+
+.grid {
+  display : grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 40px;
+}
+
+.card {
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+
+.card-title {
+  font-weight: bold;
+}
+
+.action {
+  padding: 20px 20px;
+}
+
+.row {
+  border-bottom: 1px solid silver;
+}
+
+.add-device {
+  & a {
+      text-decoration: none;
+  }
+}
+
+
+
+
+
+
+
+
+

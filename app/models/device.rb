@@ -3,6 +3,6 @@ class Device < ApplicationRecord
   belongs_to :user
   has_many :rentals, dependent: :destroy
 
-  has_many_attached :pictures
+  has_one_attached :photo
   validates :name, :description, :price, presence: true
 end
