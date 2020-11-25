@@ -1,17 +1,33 @@
 <%= render 'shared/navbar' %>
-<div class="container">
-  <ul>
-    <% @devices.each do |device| %>
-      <li>
-      <%= device.name %>
-      <%= device.description %>
-      <%= device.price %>
-      <%= link_to "details", device_path(device)  %>
-      <%= link_to "edit", edit_device_path(device) %>
-      <%= link_to 'destroy', device_path(device), method: :delete, data: { confirm: 'Are you sure?' } %>
-      </li>
-    <% end %>
-  </ul>
-  <%= link_to "new device", new_device_path %>
+<div class="container pt-3">
+    <h1 class="text-center">Devices list</h1>
+    <h4 class="text-center add-device"><%= link_to new_device_path do %>
+      <i class="fas fa-plus-circle"></i> Add new device
+      <% end %>
+    </h4>
+  <div class="grid">
+      <% @devices.each do |device| %>
+        <div class="card mb-3" style="max-width: 600px;">
+        <div class="row no-gutters">
+          <div class="col-md-4">
+            <% if device.photo.attachment %>
+              <%= cl_image_tag device.photo.key, height: 200, width: 200, crop: :fill, class: 'card-img' %>
+            <% end %>
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title"><%= device.name %></h5>
+              <p class="card-text"><small><%= device.description %></small></p>
+              <p class="card-text"><strong class="text-muted"><%= device.price %>€/day</strong></p>
+            </div>
+          </div>
+        </div>
+        <div class="action text-center">
+          <%= link_to "See the details of the device", device_path(device), class: 'btn btn-primary'%>
+          <%= link_to "New rental", new_device_rental_path(device, @rental), class: 'btn btn-info' %>
+        </div>
+      </div>
+      <% end %>
+  </div>
 </div>
 <%= render 'shared/footer' %>
