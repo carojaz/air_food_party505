@@ -1,9 +1,10 @@
 import flatpickr from "flatpickr";
 import "flatpickr/dist/themes/dark";
 
-document.addEventListener('turbolinks:load', () => {
-  flatpickr(".datepicker", {
+const flatpickrFction = () => {
+ flatpickr(".datepicker", {
     minDate: "today",
     dateFormat: "d-m-Y"
-  })
-});
+  });
+}
+export { flatpickrFction };
