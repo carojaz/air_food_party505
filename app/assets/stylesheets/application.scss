@@ -35,7 +35,6 @@ body {
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
-
 .card-title {
   font-weight: bold;
 }
@@ -54,7 +53,10 @@ body {
   }
 }
 
-
+body {
+  position: relative;
+  min-height: 100vh;
+}
 
 
 

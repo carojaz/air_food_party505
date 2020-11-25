@@ -1,3 +1,7 @@
+.container {
+  position: relative;
+}
+
 .footer {
   background: white;
   display: flex;
@@ -9,6 +13,7 @@
   position: bottom;
   bottom: 0;
   width: 100%;
+  position: absolute;
 }
 .footer-links {
   display: flex;
