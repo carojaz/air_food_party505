@@ -1,3 +1,4 @@
+<%= render 'shared/navbar_index' %>
 <div class="container">
   <ul>
     <% @devices.each do |device| %>
@@ -13,3 +14,4 @@
   </ul>
   <%= link_to "new device", new_device_path %>
 </div>
+<%= render 'shared/footer' %>

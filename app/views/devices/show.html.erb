@@ -1,3 +1,4 @@
+<%= render 'shared/navbar' %>
 <div class="container">
   <%= @device.name %>
   <%= @device.description %>
@@ -5,4 +6,4 @@
   <%= @device.user_id %>
   <%= link_to "new rental", new_device_rental_path(@device, @rental) %>
 </div>
-
+<%= render 'shared/footer' %>
