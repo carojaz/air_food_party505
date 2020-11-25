@@ -1,38 +1,40 @@
 <%= render 'shared/navbar' %>
 <div class="container">
-  <h2>Rentals faites par le user</h2>
-  <% @rentals_done.each do |rental| %>
-    <div class="container description-rental">
-    <h2><%= rental.device.name %></h2>
-      <div class="description-look">
-      <%= rental.device.description %>
-      <%= rental.device.price %>
-      <p>Start date :</p><%= rental.start_date.strftime('%d/%m/%Y') %>
-      <p>End date :</p><%= rental.end_date.strftime('%d/%m/%Y') %>
-    </div>
-    <p>State :</p>
-    <%= rental.state %>
-  </div>
-  <% end %>
-
-  <h2>Rentals faites sur les appareils du user</h2>
-  <% @rentals_on_user_device.each do |rental| %>
-    <div class="container description-rental">
-    <h2><%= rental.device.name %></h2>
-      <div class="description-look">
-      <%= rental.device.description %>
-      <%= rental.device.price %>
-      <p>Start date :</p><%= rental.start_date.strftime('%d/%m/%Y') %>
-      <p>End date :</p><%= rental.end_date.strftime('%d/%m/%Y') %>
-    </div>
-    <p>State :</p>
-    <%= rental.state %>
-    <% if rental.state == "pending" %>
-      <%= link_to "Validate", validated_account_rental_path(rental), class:"btn btn-primary", method: :patch %>
-      <%= link_to "Refuse", refused_account_rental_path(rental), class:"btn btn-danger", method: :patch %>
+  <h2 class="text-center pt-3">Your rentals</h2>
+  <div>
+    <% @rentals_done.each do |rental| %>
+      <div class="container description-rental mb-3">
+          <h2 class="pt-2"><%= rental.device.name %></h2>
+      <div class="description-look d-flex">
+        <p><strong>Price per day :</strong></p> <p class="pr-4"><%= rental.device.price %></p>
+        <p><strong>Start date :</strong></p> <p class="pr-4"><%= rental.start_date.strftime('%d/%m/%Y') %></p>
+        <p><strong>End date :</strong></p><p class="pr-4"><%= rental.end_date.strftime('%d/%m/%Y') %></p>
+        <p><strong>State :</strong></p><p class="pr-4"><%= rental.state %></p>
+      </div>
+      </div>
     <% end %>
-  <% end %>
-</div>
+  </div>
+
+  <h2 class="text-center">Rentals on your devices</h2>
+  <div>
+    <% @rentals_on_user_device.each do |rental| %>
+      <div class="container description-rental mb-3">
+        <h2 class="pt-2"><%= rental.device.name %></h2>
+      <div class="description-look d-flex">
+        <p><strong>Price per day :</strong></p> <p class="pr-4"><%= rental.device.price %></p>
+        <p><strong>Start date :</strong></p> <p class="pr-4"><%= rental.start_date.strftime('%d/%m/%Y') %></p>
+        <p><strong>End date :</strong></p><p class="pr-4"><%= rental.end_date.strftime('%d/%m/%Y') %></p>
+        <p><strong>State :</strong></p><p class="pr-4"><%= rental.state %></p>
+        <% if rental.state == "pending" %>
+          <div class="accept-refuse">
+            <%= link_to "Validate", validated_account_rental_path(rental), class:"btn btn-primary", method: :patch, data: { confirm: 'Are you sure?' } %>
+            <%= link_to "Refuse", refused_account_rental_path(rental), class:"btn btn-danger", method: :patch, data: { confirm: 'Are you sure?' } %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <% end %>
+  </div>
 </div>
 <div>
   <%= render 'shared/footer' %>

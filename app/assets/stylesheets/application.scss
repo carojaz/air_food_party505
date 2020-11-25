@@ -13,11 +13,12 @@
 @import "pages/index";
 @import "flatpickr/dist/flatpickr";
 
-// .container {
-//   position: relative;
-// }
-h1 {
+h1 h2 h4 {
   font-family: $font1;
+}
+
+p {
+  font-family: $font2;
 }
 
 .grid {
@@ -54,4 +55,21 @@ body {
   min-height: 100vh;
   padding-bottom: 100px;
   font-family: $font1;
+}
+
+.description-rental {
+  background-color: white;
+  border : 3px solid silver;
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  position: relative;
+}
+
+.accept-refuse {
+  padding-left: 350px;
+  position: absolute;
+  bottom : 0;
+  right: 0;
+  padding-right: 30px;
+  padding-bottom: 23px;
 }
