@@ -1,3 +1,4 @@
+<%= render 'shared/navbar' %>
 <div class="container">
   <%= simple_form_for([@device, @rental]) do |f| %>
   <div class="form-inputs">
@@ -9,4 +10,7 @@
     <%= f.submit 'New rental', class: 'btn btn-primary' %>
   </div>
   <% end %>
+</div>
+<div class="footer">
+  <%= render 'shared/footer' %>
 </div>
