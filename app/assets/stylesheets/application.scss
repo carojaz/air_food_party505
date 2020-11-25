@@ -20,10 +20,6 @@ h1 {
   font-family: $font1;
 }
 
-body {
-  font-family: $font1;
-}
-
 .grid {
   display : grid;
   grid-template-columns: 1fr 1fr;
@@ -57,11 +53,5 @@ body {
   position: relative;
   min-height: 100vh;
   padding-bottom: 100px;
+  font-family: $font1;
 }
-
-
-
-
-
-
-

@@ -6,6 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+require "open-uri"
+
 Device.destroy_all
 Category.destroy_all
 Rental.destroy_all
@@ -27,18 +29,29 @@ puts "#{User.count} users created"
 d1 = Device.new(name: "Raclette Caro", description: "LA plus belle des raclettes à votre table!", price: 500)
 d1.user_id = u1.id
 d1.category_id = c1.id
+file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
+d1.photo.attach(io: file, filename: 'u1.png', content_type: 'image/png')
 d1.save!
+
 d2 = Device.new(name: "Pierrade de ouf de Nicho", description: "La meilleure viande grillée du monde", price: 400)
 d2.user_id = u2.id
 d2.category_id = c2.id
+file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
+d2.photo.attach(io: file, filename: 'u1.png', content_type: 'image/png')
 d2.save!
+
 d3 = Device.new(name: "Crêpe de dingue d'Aphisit", description: "Votre meilleure crêpe!...surtout avec du Nutella!", price: 700.50)
 d3.user_id = u3.id
 d3.category_id = c3.id
+file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
+d3.photo.attach(io: file, filename: 'u1.png', content_type: 'image/png')
 d3.save!
+
 d4 = Device.new(name: "PopCorn tous ensemble d'Aphisit", description: "Anti-covid, mangez des pop corn tous ensemble!!", price: 200)
 d4.user_id = u3.id
 d4.category_id = c4.id
+file = URI.open('https://giantbomb1.cbsistatic.com/uploads/original/9/99864/2419866-nes_console_set.png')
+d4.photo.attach(io: file, filename: 'u1.png', content_type: 'image/png')
 d4.save!
 
 puts "#{Device.count} devices created"
