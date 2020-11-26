@@ -1,16 +1,30 @@
 <%= render 'shared/navbar' %>
 <div class="container">
-  <h1 class="text-center pt-3">What dates you'd like to enjoy the <%= @device.name %></h1>
-  <p class="text-center pt-3"> Details of the device : <%= @device.description %> </p>
-  <%= simple_form_for([@device, @rental]) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :start_date,  as: :string, required: true, input_html: {class: "datepicker"} %>
-    <%= f.input :end_date,  as: :string, required: true, input_html: {class: "datepicker"} %>
-    <!-- <p class="d-none"><%= f.input_field :device_id, value: @device.id %></p> -->
+  <div class="general-info">
+    <h1 class="text-center pt-3">What dates you'd like to enjoy the <%= @device.name %> </h1>
+      <p class="text-center pt-3"> Details of the device : <%= @device.description %> </p>
   </div>
-  <div class="form-actions">
-    <%= f.submit 'New rental', class: 'btn btn-primary' %>
+  <div class="rental-details">
+    <div class="row">
+      <div class="owner-info">
+        <h2>Owner of device is <%= User.find(@device.user_id).first_name %></h2>
+        <p>Address : <%= User.find(@device.user_id).address %> </p>
+      </div>
+      <%= simple_form_for([@device, @rental]) do |f| %>
+      <div class="form-inputs">
+        <%= f.input :start_date,  as: :string, required: true, input_html: {class: "datepicker"} %>
+        <%= f.input :end_date,  as: :string, required: true, input_html: {class: "datepicker"} %>
+        <!-- <p class="d-none"><%= f.input_field :device_id, value: @device.id %></p> -->
+      </div>
+      <div class="form-actions">
+        <%= f.submit 'New rental', class: 'btn btn-primary' %>
+      </div>
+      <% end %>
+      <div class="rental-datas" data-price = "<%= @device.price %>">
+        <p> </p>
+
+      </div>
+    </div>
   </div>
-  <% end %>
 </div>
   <%= render 'shared/footer' %>
