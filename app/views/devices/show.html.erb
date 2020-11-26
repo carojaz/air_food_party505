@@ -23,7 +23,7 @@
         <p><%= @user.phone_number %></p>
       </div>
   </div>
-  <div class="pt-3 text-center">
+  <div class="pt-3 pb-3 text-center">
       <%= link_to "New rental", new_device_rental_path(@device, @rental), class: 'btn btn-info' %>
       <%= link_to "Edit device", edit_device_path(@device), class: 'btn btn-success'  %>
       <%= link_to 'Destroy device', device_path(@device), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'  %>
