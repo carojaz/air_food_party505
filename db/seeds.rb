@@ -20,17 +20,17 @@ c4 = Category.create!(name: "PopCorn party")
 
 puts "#{Category.count} categories created"
 
-u1 = User.new(email: "jasinski_caroline@yahoo.fr", password: "azertyazerty", first_name: "Caroline", last_name: "Jasinski", description: nil, address: "118 rue André Deplace 59830 Cysoing")
+u1 = User.new(email: "jasinski_caroline@yahoo.fr", password: "azertyazerty", first_name: "Caroline", last_name: "Jasinski", description: nil, address: "Cysoing", phone_number: "0610111213")
 file = URI.open('https://avatars3.githubusercontent.com/u/68743949?s=460&u=f16cbc21758c842fba66a642775e7c931a7be251&v=4')
 u1.photo.attach(io: file, filename: 'caro.jpg', content_type: 'image/jpg')
 u1.save!
 
-u2 = User.new(email: "nicholas04claessens@yahoo.com", password: "azertyazerty", first_name: "Nicholas", last_name: "Claessens", description: nil, address: "1 rue Thier Saive 4608 Warsage")
+u2 = User.new(email: "nicholas04claessens@yahoo.com", password: "azertyazerty", first_name: "Nicholas", last_name: "Claessens", description: nil, address: "Warsage", phone_number: "0611223344")
 file = URI.open('https://avatars1.githubusercontent.com/u/70324228?s=400&u=4b7e428200c39fee27f4d7ab4956100519065772&v=4')
 u2.photo.attach(io: file, filename: 'caro.jpg', content_type: 'image/jpg')
 u2.save!
 
-u3 = User.create!(email: "chompum.aphisit@hotmail.fr", password: "azertyazerty", first_name: "Aphisit", last_name: "Chompum", description: nil, address: "163 rue Auber 59200 Tourcoing")
+u3 = User.create!(email: "chompum.aphisit@hotmail.fr", password: "azertyazerty", first_name: "Aphisit", last_name: "Chompum", description: nil, address: "163 rue Auber 59200 Tourcoing", phone_number: "0722889977")
 file = URI.open('https://avatars2.githubusercontent.com/u/72460013?s=460&u=f69a8626581d6fbdad07e47bc67a630b6b8aae3a&v=4')
 u3.photo.attach(io: file, filename: 'caro.jpg', content_type: 'image/jpg')
 u3.save!

@@ -1,20 +1,22 @@
 const showInput = () => {
   const rentalDatas = document.querySelector(".rental-datas");
-  const price = rentalDatas.dataset.price;
+  if (rentalDatas) {
+    const price = rentalDatas.dataset.price;
 
-  const startDate = document.getElementById('rental_start_date');
-  startDate.addEventListener("change", (event) => {
-    const startDateValue = (startDate.value);
-    const endDateValue = document.getElementById('rental_end_date').value;
-    duration(startDateValue, endDateValue, rentalDatas, price);
-  });
+    const startDate = document.getElementById('rental_start_date');
+    startDate.addEventListener("change", (event) => {
+      const startDateValue = (startDate.value);
+      const endDateValue = document.getElementById('rental_end_date').value;
+      duration(startDateValue, endDateValue, rentalDatas, price);
+    });
 
-  const endDate = document.getElementById('rental_end_date');
-  endDate.addEventListener("change", (event) => {
-    const endDateValue = (endDate.value);
-    const startDateValue = document.getElementById('rental_start_date').value;
-    duration(startDateValue, endDateValue, rentalDatas, price);
-  });
+    const endDate = document.getElementById('rental_end_date');
+    endDate.addEventListener("change", (event) => {
+      const endDateValue = (endDate.value);
+      const startDateValue = document.getElementById('rental_start_date').value;
+      duration(startDateValue, endDateValue, rentalDatas, price);
+    });
+  }
 }
 
 const duration =(start, end, rental, price) => {
