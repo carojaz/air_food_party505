@@ -1,10 +1,12 @@
 <%= render 'shared/navbar' %>
 <div class="quote-bckg">
   <div class="container pt-3">
-      <h4 class="text-center add-device"><%= link_to new_device_path do %>
-        <i class="fas fa-plus-circle"></i> Add new device
-        <% end %>
-      </h4>
+  <div class="add-device">
+    <h5 class="btn-add-device"><%= link_to new_device_path do %>
+      <i class="fas fa-plus-circle"></i> Awake your spare device and rent it now!
+      <% end %>
+    </h5>
+  </div>
     <div class="content">
       <div class="cards">
         <% @devices.each do |device| %>
@@ -34,11 +36,11 @@
           </div>
         <% end %>
       </div>
-      <div id="map"
-        style='width: 100vh; height: 65vh;'
-        data-markers="<%= @markers.to_json %>"
-        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-      </div>
+        <div id="map"
+          style='height: 65vh;'
+          data-markers="<%= @markers.to_json %>"
+          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+        </div>
     </div>
   </div>
 </div>

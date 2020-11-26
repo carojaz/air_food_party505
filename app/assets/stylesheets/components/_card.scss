@@ -7,6 +7,10 @@
   min-width: 21em;
   background-color: #e5e3e3;
 
+  & p {
+    line-height: 0.8em;
+  }
+
   & .img-device {
     height: 14em;
     width: 5em;
@@ -32,16 +36,18 @@
     vertical-align: center;
     text-align: center;
     margin-bottom: 1em;
+    flex-shrink: 0;
   }
 
   & .card-body {
     height: 12em;
     padding: 1.5em;
     flex-wrap: nowrap;
+    flex-shrink: 0;
   }
 
   & .price-info {
-
+    margin: 0.5em;
   }
 
   & .action {
@@ -61,13 +67,6 @@
   & .row {
     border-bottom: 1px solid silver;
   }
-
-  & .add-device {
-    & a {
-        text-decoration: none;
-    }
-  }
-
 }
 
 
@@ -124,7 +123,8 @@
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
 
     & #total {
-      font-size: 16px;
+      font-size: 24px;
+      font-weight: bold;
     }
   }
 
@@ -167,6 +167,4 @@
       }
     }
   }
-
-
 }

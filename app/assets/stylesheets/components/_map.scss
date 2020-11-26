@@ -25,6 +25,13 @@
   .cards {
     grid-template-columns: 1fr;
   }
+
+  .card-device {
+    & .img-device {
+      display: none;
+    }
+  }
+
   #map {
     display: none;
   }

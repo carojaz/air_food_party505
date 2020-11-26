@@ -22,3 +22,30 @@
 
 }
 
+
+.add-device {
+  display: flex;
+  justify-content: center;
+
+  & .btn-add-device {
+    background-color: white;
+    border-radius: 25px;
+    border: solid silver 0.1em;
+    padding: 0.5em 1em;
+    margin: 0.2em;
+    height: 2.5em;
+  }
+
+  & a {
+    text-decoration: none;
+    color: gray;
+
+    &:hover {
+      color: $red;
+    }
+  }
+
+  & h5 {
+
+  }
+}
