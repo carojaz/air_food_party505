@@ -1,0 +1,58 @@
+// rental form card
+
+.rental-details {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  wrap: no-wrap;
+
+
+  & h4 {
+    margin-bottom: 1em;
+    height: 2.5em;
+    border-bottom: silver solid 0.1em;
+    justify-content: center;
+    text-align: center;
+    align-content: center;
+  }
+
+  & .owner-info {
+    text-align: center;
+    margin: 1em;
+    padding: 1em;
+    width: 15em;
+    border-radius: 10px;
+    border: solid silver 0.1em;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  }
+
+  & .form-rental {
+    text-align: center;
+    margin: 1em;
+    padding: 1em;
+    width: 15em;
+    border-radius: 10px;
+    border: solid silver 0.1em;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  }
+
+  & .rental-datas-sumup {
+    text-align: center;
+    margin: 1em;
+    padding: 1em;
+    width: 15em;
+    border-radius: 10px;
+    border: solid silver 0.1em;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+
+    & #total {
+      font-size: 16px;
+    }
+  }
+
+  & .row {
+    border-bottom: none;
+  }
+}
