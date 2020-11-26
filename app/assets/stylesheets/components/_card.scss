@@ -1,36 +1,75 @@
 // devices index card
 
-.grid {
-  display : grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 40px;
-}
-
-.card {
+.card-device {
   border-radius: 10px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  & img {
-    border-radius: 10px 0px 0px 0px;
+  text-align: center;
+  min-width: 21em;
+  background-color: #e5e3e3;
+
+  & .img-device {
+    height: 14em;
+    width: 5em;
+    object-position: left top;
+    text-align: right;
+    position: relative;
+
+    & img {
+      border-radius: 10px 0px 0px 0px;
+      object-fit: cover;
+      height: 14em;
+      width: 8em;
+      position: absolute;
+      top: 0;
+      left:0;
+    }
   }
-}
 
-.card-title {
-  font-weight: bold;
-}
 
-.action {
-  padding: 20px 20px;
-}
+  & .card-title {
+    font-weight: bold;
+    height: 2em;
+    vertical-align: center;
+    text-align: center;
+    margin-bottom: 1em;
+  }
 
-.row {
-  border-bottom: 1px solid silver;
-}
+  & .card-body {
+    height: 12em;
+    padding: 1.5em;
+    flex-wrap: nowrap;
+  }
 
-.add-device {
-  & a {
+  & .price-info {
+
+  }
+
+  & .action {
+    display: flex;
+    padding: 20px 20px;
+    height: 4.5em;
+    justify-content: center;
+
+    & .fas {
+      padding-top: 0.65em;
+    }
+
+    & a {
       text-decoration: none;
+    }
   }
+  & .row {
+    border-bottom: 1px solid silver;
+  }
+
+  & .add-device {
+    & a {
+        text-decoration: none;
+    }
+  }
+
 }
+
 
 
 
@@ -92,4 +131,42 @@
   & .row {
     border-bottom: none;
   }
+}
+
+// info window on map
+.mapboxgl-popup {
+  max-width: 200px;
+}
+
+.mapboxgl-popup-content {
+  display: flex;
+}
+
+.info-window {
+  display: flex;
+  wrap: no-wrap;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  wrap: no-wrap;
+  min-width: 15em;
+  justify-content: space-around;
+  padding: 1.5em;
+
+  & .devices-proposal {
+    display:flex;
+    text-align: center;
+    align-items: center;
+    justify-content: start;
+    vertical-align: center;
+
+    & .proposal {
+      & img {
+        border-radius: 10px;
+        margin: 0.3em;
+      }
+    }
+  }
+
+
 }

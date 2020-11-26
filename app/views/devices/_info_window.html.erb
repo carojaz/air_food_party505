@@ -1,9 +1,14 @@
-<h4>owner :<br></h4><p><%= user.first_name %><br><%= user.address %><br>telephone</p>
-<% user.devices.each do |device|%>
-<div>
-  <% if device.photo.attachment %>
-      <%= cl_image_tag device.photo.key, height: 50, width: 50, crop: :fill %>
+<div class="info-window row">
+  <h6><%= user.first_name %> rental proposals</h6>
+    <p> Call him on: <%=user.phone_number %></p>
+  <% user.devices.each do |device|%>
+  <div class="devices-proposal">
+    <% if device.photo.attachment %>
+        <div class="proposal">
+        <%= cl_image_tag device.photo.key, height: 50, width: 50, crop: :fill %>
+        </div>
+    <h6><%= device.name %></h6>
+    <% end %>
+  </div>
   <% end %>
-  <%= device.name %>
 </div>
-<% end %>

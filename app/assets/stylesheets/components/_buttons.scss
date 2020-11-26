@@ -1,18 +1,23 @@
 .btn-detail {
-  border-radius: 10px;
+  border-radius: 25px;
   color: white;
-  background-color: #1f6f8b ;
+  background-color: $red ;
   text-align: center;
   vertical-align: middle;
-  padding: 8px 8px;
+  padding: 0.5em 1em;
+  margin: 0.2em;
+  height: 2.5em;
+  display: flex;
+  justify-content: space-between;
+  border: solid 0.1em $red;
 
   &:hover {
-    transform: perspective(1px) translateZ(0);
-    transition-property: color;
-    transition-duration: 0.3s;
-  }
-
-  & a {
+    background-color: white;
+    color: $red;
+    border: solid 0.1em $red;
     text-decoration: none;
   }
+
 }
+
+
