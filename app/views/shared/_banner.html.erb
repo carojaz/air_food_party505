@@ -2,9 +2,14 @@
   <div class="container">
     <h1>Welcome to AirFoodParty!!</h1>
     <p>Let's go and rent your favorite food party device : Raclette, Pierrade, Crêpe party or a Pop Corn machine !!!</p>
-    <form class="form-inline" method="get" action="/devices">
-    <input class="form-control mr-sm-2" type="search" placeholder="What's your city ?" aria-label="Search">
-    <%= link_to "Search", devices_path, class: 'btn btn-primary' %>
+    <%= form_tag devices_path, method: :get do %>
+    <%= text_field_tag :address,
+      params[:address],
+      class: "form-control",
+      placeholder: "What's your city?"
+    %>
+    <%= submit_tag "Search", class: "btn btn-primary" %>
+    <% end %>
   </form>
   </div>
 </div>
