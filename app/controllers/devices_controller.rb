@@ -2,7 +2,11 @@ class DevicesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @devices = Device.all
+    if params[:query].present?
+      @devices = Device.search_by_name(params[:query])
+    else
+      @devices = Device.all
+    end
     @user = User.all
     @markers = @user.geocoded.map do |user|
       {
