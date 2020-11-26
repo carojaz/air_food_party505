@@ -3,12 +3,14 @@
     <h1>Welcome to AirFoodParty!!</h1>
     <p>Let's go and rent your favorite food party device : Raclette, Pierrade, Crêpe party or a Pop Corn machine !!!</p>
     <%= form_tag devices_path, method: :get do %>
+    <div class="d-flex">
     <%= text_field_tag :address,
       params[:address],
       class: "form-control",
       placeholder: "What's your city?"
     %>
     <%= submit_tag "Search", class: "btn btn-primary" %>
+    </div>
     <% end %>
   </form>
   </div>
