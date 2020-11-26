@@ -3,6 +3,14 @@ class DevicesController < ApplicationController
 
   def index
     @devices = Device.all
+    @user = User.all
+    @markers = @user.geocoded.map do |user|
+      {
+        lat: user.latitude,
+        lng: user.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { user: user })
+      }
+    end
   end
 
   def index_by_user
