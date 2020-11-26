@@ -3,11 +3,26 @@
     <%= image_tag "https://www.flaticon.com/svg/static/icons/svg/3754/3754009.svg" %>
     <% end %>
 
+    <%= form_tag devices_path, method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "What do you search?"
+    %>
+    <%= text_field_tag :address,
+      params[:address],
+      class: "form-control",
+      placeholder: "Address?"
+    %>
+    <%= submit_tag "Search", class: "btn btn-primary" %>
+    <% end %>
+
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <%= link_to "AirFoodParty", "/", class: 'navbar-brand navbar-title'  %>
+
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
