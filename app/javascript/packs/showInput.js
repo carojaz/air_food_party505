@@ -24,11 +24,21 @@ const duration =(start, end, rental, price) => {
   rental.innerHTML = "";
   if (isNaN(durationDays)) {
     rental.insertAdjacentHTML("beforeend",
-    `<p> Please entre start date and end date </p>`)
+    `<p> Please enter start date and end date </p>`)
   } else {
     rental.insertAdjacentHTML("beforeend",
-    `<p> ${durationDays} days of rental </p>
-    <p>${durationDays * price} €</p>`)
+    `<div class="infos">
+    </div>
+      <h5>Price per day:</h5>
+      <p>${price} €</p>
+    <div class="infos">
+      <h5>Duration selected:</h5>
+      <p> ${durationDays} days</p>
+    </div>
+    <div class="infos">
+    <h5>Total price for your rental:</h5>
+    <p id="total">${durationDays * price} €</p>
+    </div>`)
   }
 }
 export { showInput };
