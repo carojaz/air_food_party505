@@ -1,4 +1,17 @@
 class Device < ApplicationRecord
+  include PgSearch::Model
+  pg_search_scope :search_by_name_category_address,
+                  against: [:name],
+                  associated_against: {
+                    category: [:name]
+                  },
+                  associated_against: {
+                    user: [:address]
+                  },
+                  using: {
+                    tsearch: { prefix: true }
+                  }
+
   belongs_to :category
   belongs_to :user
   has_many :rentals, dependent: :destroy

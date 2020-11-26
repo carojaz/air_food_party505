@@ -1,0 +1,9 @@
+<h4>owner :<br></h4><p><%= user.first_name %><br><%= user.address %><br>telephone</p>
+<% user.devices.each do |device|%>
+<div>
+  <% if device.photo.attachment %>
+      <%= cl_image_tag device.photo.key, height: 50, width: 50, crop: :fill %>
+  <% end %>
+  <%= device.name %>
+</div>
+<% end %>
