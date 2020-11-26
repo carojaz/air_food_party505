@@ -2,12 +2,23 @@ class DevicesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    if params[:query].present?
-      @devices = Device.search_by_name(params[:query])
+    if params[:query].present? && params[:address].present?
+      @user = User.near(params[:address], 20)
+      users_id = @user.map { |user| user.id }
+      @devices = Device.search_by_name_category_address(params[:query]).where(user_id: users_id)
+      @user = User.near(params[:address], 20).where(id: @user_id)
+    elsif params[:query].present?
+      @devices = Device.search_by_name_category_address(params[:query])
+    elsif params[:address].present?
+      @user = User.near(params[:address], 20)
+      users_id = @user.map { |user| user.id }
+      @devices = Device.where(user_id: users_id)
     else
       @devices = Device.all
     end
-    @user = User.all
+
+    @user_id = @devices.map { |device| device.user.id }
+    @user = User.where(id: @user_id)
     @markers = @user.geocoded.map do |user|
       {
         lat: user.latitude,

@@ -1,6 +1,6 @@
 class Device < ApplicationRecord
   include PgSearch::Model
-  pg_search_scope :search_by_name,
+  pg_search_scope :search_by_name_category_address,
                   against: [:name],
                   associated_against: {
                     category: [:name]
