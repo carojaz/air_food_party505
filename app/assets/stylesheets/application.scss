@@ -22,38 +22,6 @@ p {
   font-family: $font2;
 }
 
-.grid {
-  display : grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 40px;
-}
-
-.card {
-  border-radius: 10px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  & img {
-    border-radius: 10px 0px 0px 0px;
-  }
-}
-
-.card-title {
-  font-weight: bold;
-}
-
-.action {
-  padding: 20px 20px;
-}
-
-.row {
-  border-bottom: 1px solid silver;
-}
-
-.add-device {
-  & a {
-      text-decoration: none;
-  }
-}
-
 body {
   position: relative;
   min-height: 100vh;
