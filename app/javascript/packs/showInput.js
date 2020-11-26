@@ -29,11 +29,9 @@ const duration =(start, end, rental, price) => {
     rental.insertAdjacentHTML("beforeend",
     `<div class="infos">
     </div>
-      <h5>Price per day:</h5>
-      <p>${price} €</p>
     <div class="infos">
       <h5>Duration selected:</h5>
-      <p> ${durationDays} days</p>
+      <p> ${durationDays} days X ${price} €</p>
     </div>
     <div class="infos">
     <h5>Total price for your rental:</h5>
