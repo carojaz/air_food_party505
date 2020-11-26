@@ -11,7 +11,7 @@ require "open-uri"
 Device.destroy_all
 Category.destroy_all
 Rental.destroy_all
-User.destroy_all
+# User.destroy_all
 
 c1 = Category.create!(name: "Raclette")
 c2 = Category.create!(name: "Pierrade")
@@ -20,22 +20,22 @@ c4 = Category.create!(name: "PopCorn party")
 
 puts "#{Category.count} categories created"
 
-u1 = User.new(email: "jasinski_caroline@yahoo.fr", password: "azertyazerty", first_name: "Caroline", last_name: "Jasinski", description: nil, address: "Cysoing", phone_number: "0610111213")
-file = URI.open('https://avatars3.githubusercontent.com/u/68743949?s=460&u=f16cbc21758c842fba66a642775e7c931a7be251&v=4')
-u1.photo.attach(io: file, filename: 'caro.jpg', content_type: 'image/jpg')
-u1.save!
-
-u2 = User.new(email: "nicholas04claessens@yahoo.com", password: "azertyazerty", first_name: "Nicholas", last_name: "Claessens", description: nil, address: "Warsage", phone_number: "0611223344")
-file = URI.open('https://avatars1.githubusercontent.com/u/70324228?s=400&u=4b7e428200c39fee27f4d7ab4956100519065772&v=4')
-u2.photo.attach(io: file, filename: 'caro.jpg', content_type: 'image/jpg')
-u2.save!
-
-u3 = User.create!(email: "chompum.aphisit@hotmail.fr", password: "azertyazerty", first_name: "Aphisit", last_name: "Chompum", description: nil, address: "163 rue Auber 59200 Tourcoing", phone_number: "0722889977")
-file = URI.open('https://avatars2.githubusercontent.com/u/72460013?s=460&u=f69a8626581d6fbdad07e47bc67a630b6b8aae3a&v=4')
-u3.photo.attach(io: file, filename: 'caro.jpg', content_type: 'image/jpg')
-u3.save!
-
-puts "#{User.count} users created"
+# u1 = User.new(email: "jasinski_caroline@yahoo.fr", password: "azertyazerty", first_name: "Caroline", last_name: "Jasinski", description: nil, address: "Cysoing", phone_number: "0610111213")
+# file = URI.open('https://avatars3.githubusercontent.com/u/68743949?s=460&u=f16cbc21758c842fba66a642775e7c931a7be251&v=4')
+# u1.photo.attach(io: file, filename: 'caro.jpg', content_type: 'image/jpg')
+# u1.save!
+u1 = User.all[0]
+# u2 = User.new(email: "nicholas04claessens@yahoo.com", password: "azertyazerty", first_name: "Nicholas", last_name: "Claessens", description: nil, address: "Warsage", phone_number: "0611223344")
+# file = URI.open('https://avatars1.githubusercontent.com/u/70324228?s=400&u=4b7e428200c39fee27f4d7ab4956100519065772&v=4')
+# u2.photo.attach(io: file, filename: 'caro.jpg', content_type: 'image/jpg')
+# u2.save!
+u2 = User.all[1]
+# u3 = User.create!(email: "chompum.aphisit@hotmail.fr", password: "azertyazerty", first_name: "Aphisit", last_name: "Chompum", description: nil, address: "163 rue Auber 59200 Tourcoing", phone_number: "0722889977")
+# file = URI.open('https://avatars2.githubusercontent.com/u/72460013?s=460&u=f69a8626581d6fbdad07e47bc67a630b6b8aae3a&v=4')
+# u3.photo.attach(io: file, filename: 'caro.jpg', content_type: 'image/jpg')
+# u3.save!
+u3 = User.all[2]
+# puts "#{User.count} users created"
 
 d1 = Device.new(name: "Raclette Caro", description: "LA plus belle des raclettes à votre table pour déguster le meilleur fromage du monde en mode traditionnel!", price: 500)
 d1.user_id = u1.id
@@ -79,6 +79,8 @@ r5 = Rental.new(start_date: "2020-12-01", end_date: "2020-12-02", user_id: u3.id
 r5.save!
 r6 = Rental.new(start_date: "2020-12-25", end_date: "2020-12-26", user_id: u3.id, device_id: d2.id)
 r6.save!
+r7 = Rental.new(start_date: "2021-01-25", end_date: "2021-01-30", user_id: u3.id, device_id: d2.id)
+r7.save!
 
 puts "#{Rental.count} rentals created"
 
