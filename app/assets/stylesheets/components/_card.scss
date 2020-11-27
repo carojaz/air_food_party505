@@ -167,6 +167,16 @@
       }
     }
   }
+
+  & a {
+    padding: 0.1em;
+    text-decoration: none;
+    color: $red;
+
+    &:hover {
+      ;
+    }
+  }
 }
 
 // Rental show card
@@ -213,6 +223,7 @@
       flex-direction: row;
 
       & div {
+        padding: 0.5em 1em;
         border: gray solid 0.1em;
         border-radius: 10px;
         margin: 0.5em;

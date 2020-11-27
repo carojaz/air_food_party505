@@ -10,9 +10,10 @@
       params[:address],
       class: "form-control",
       placeholder: "What's your city?"
+      # value: current_user.adress
     %>
     <%= submit_tag "Search", class: "btn-detail" %>
-    <%= link_to "Sign up", new_user_session_path, class: "btn-light" %>
+      <%= link_to "Sign up", new_user_session_path, class: "btn-light" %>
     </div>
     <% end %>
 

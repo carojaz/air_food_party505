@@ -7,7 +7,7 @@
         <div class="proposal">
         <%= cl_image_tag device.photo.key, height: 50, width: 50, crop: :fill %>
         </div>
-    <h6><%= device.name %></h6>
+    <h6><%= link_to device.name, device_path(device) %></h6>
     <% end %>
   </div>
   <% end %>
