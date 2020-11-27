@@ -168,3 +168,64 @@
     }
   }
 }
+
+// Rental sho card
+
+.show-card {
+  display: flex;
+  border: gray solid 0.1em;
+  border-radius: 25px;
+  background-color: white;
+  flex-direction: column;
+  margin: 0.5em;
+  padding: 0.5em;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  text-align: center;
+
+  & .show-info {
+
+    flex-direction: row;
+
+    & .action {
+      display: flex;
+      justify-content: space-evenly;
+      margin: 0.5em;
+
+      & img {
+        width: 20em;
+        border-radius: 10px;
+        position: relative;
+
+      }
+
+      & .action-btn {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 25%;
+        text-align: center;
+      }
+    }
+
+    & .device-details {
+      margin-top: 1em;
+      display: flex;
+      flex-direction: row;
+
+      & div {
+        border: gray solid 0.1em;
+        border-radius: 10px;
+        margin: 0.5em;
+      }
+
+      & .device-info {
+        width: 50%;
+      }
+
+      & .device-owner {
+        width: 50%;
+      }
+    }
+
+  }
+}
