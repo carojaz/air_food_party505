@@ -242,3 +242,86 @@
 
   }
 }
+
+// rental index
+.rental-details {
+  display: flex;
+  align-items: start;
+}
+
+.user-rental {
+  margin: 1em;
+  width: 50%;
+  border: solid silver 0.1em;
+  padding: 1em;
+  background-color: #e5e3e3;
+  border-radius: 25px;
+
+  & h3 {
+    font-weight: bold;
+  }
+}
+
+.rental-card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border: solid silver 0.1em;
+  padding: 1em;
+  background-color: #f2f2f2;
+  border-radius: 25px;
+}
+
+.device-name {
+  margin: 0.5em;
+}
+
+.description-look {
+  display: flex;
+  justify-content: space-around;
+  height: 20em;
+
+  & .user-info {
+    width: 50%;
+    height: 20em;
+    border: solid silver 0.1em;
+    padding: 1em;
+    border-radius: 25px;
+    margin: 0 0.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center
+  }
+
+  & .date-info {
+    width: 50%;
+    height: 20em;
+    border: solid silver 0.1em;
+    padding: 1em;
+    border-radius: 25px;
+    margin: 0 0.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center
+  }
+
+  & h5 {
+    margin-top: 0.2em;
+  }
+}
+.accept-refuse {
+  height: 6em;
+  & a {
+    text-decoration: none;
+  }
+}
+
+
+
+
+
+
+
+

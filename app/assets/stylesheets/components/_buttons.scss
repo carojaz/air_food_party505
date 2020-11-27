@@ -73,3 +73,64 @@
   }
 
 }
+
+.state-p {
+  border: solid transparent 0.1em;
+  padding: 0.1em;
+  border-radius: 25px;
+  background-color: #ffd369;
+  font-weight: bold;
+}
+
+.state-v {
+  border: solid transparent 0.1em;
+  padding: 0.1em;
+  border-radius: 25px;
+  background-color: #86f3b8;
+  font-weight: bold;
+}
+
+.state-r {
+  border: solid transparent 0.1em;
+  padding: 0.1em;
+  border-radius: 25px;
+  background-color: #a6aa9c ;
+  font-weight: bold;
+}
+
+.btn-validation {
+  border: solid transparent 0.1em;
+  padding: 0.5em 1.5em;
+  margin: 0.5em;
+  border-radius: 25px;
+  background-color: #86f3b8 ;
+  text-decoration: none;
+  color: black;
+
+  &:hover {
+    font-weight: bold;
+    color: white;
+  }
+  &a {
+    text-decoration: none;
+  }
+}
+
+.btn-refuse {
+  border: solid transparent 0.1em;
+  padding: 0.5em 1.5em;
+  margin: 0.5em;
+  border-radius: 25px;
+  background-color: #a6aa9c ;
+  text-decoration: none;
+  color: black;
+
+  &:hover {
+    font-weight: bold;
+    color: white;
+  }
+
+  &a {
+    text-decoration: none;
+  }
+}

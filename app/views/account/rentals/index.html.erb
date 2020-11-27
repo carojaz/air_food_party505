@@ -1,68 +1,89 @@
 <%= render 'shared/navbar' %>
-<div class="container">
-  <h2 class="text-center pt-3">Your rentals</h2>
-  <div>
-    <% @rentals_done.each do |rental| %>
-      <div class="container description-rental mb-3">
-      <div class="device-name d-flex flex-row">
-          <h2 class="pt-2"><%= rental.device.name %>
-          <%= cl_image_tag rental.device.user.photo.key, :transformation=>[
-  {:width=>400, :height=>400, :gravity=>"face", :radius=>"max", :crop=>"crop"},
-  {:width=>200, :crop=>"scale"}
-  ], class: "avatar " %>
-          </h2>
-      </div>
-      <div class="description-look">
-        <div class="user-info d-flex flex-row">
-        <p><strong>Owner address :&nbsp</strong></p> <p class="pr-4"><%= rental.device.user.address %></p>
-        <p><strong>Owner phone_number :&nbsp</strong></p> <p class="pr-4"><%= rental.device.user.phone_number %></p>
-        </div>
-        <div class="date-info d-flex flex-row">
-        <p><strong>Price per day :&nbsp</strong></p> <p class="pr-4"><%= rental.device.price %></p>
-        <p><strong>Start date :&nbsp</strong></p> <p class="pr-4"><%= rental.start_date.strftime('%d/%m/%Y') %></p>
-        <p><strong>End date :&nbsp</strong></p><p class="pr-4"><%= rental.end_date.strftime('%d/%m/%Y') %></p>
-        <p><strong>State :&nbsp</strong></p><p class="pr-4"><%= rental.state %></p>
-        </div>
-      </div>
-      </div>
-    <% end %>
-  </div>
-
-  <h2 class="text-center">Rentals on your devices</h2>
-  <div>
-    <% @rentals_on_user_device.each do |rental| %>
-      <div class="container description-rental mb-3">
-        <h2 class="pt-2"><%= rental.device.name %></h2>
-      <div class="description-look">
-        <div class="rental-on-ur-device d-flex flex-row">
-        <p class= "d-flex align-items-center"><strong>Your device is rented by :&nbsp</strong></p>
-        <p class="pr-4 d-flex align-items-center">
-          <%= rental.user.full_name %>&nbsp &nbsp
-          <%= cl_image_tag rental.user.photo.key, :transformation=>[
-          {:width=>400, :height=>400, :gravity=>"face", :radius=>"max", :crop=>"crop"},
-          {:width=>200, :crop=>"scale"}   
-          ], class: "avatar " %>
-        </p>
-        </div>
-        <div class="user-info d-flex flex-row">
-        <p><strong>Owner address :&nbsp</strong></p> <p class="pr-4"><%= rental.device.user.address %></p>
-        <p><strong>Owner phone_number :&nbsp</strong></p> <p class="pr-4"><%= rental.device.user.phone_number %></p>
-        </div>
-        <div class="date-info d-flex flex-row">
-        <p><strong>Price per day :&nbsp</strong></p> <p class="pr-4"><%= rental.device.price %></p>
-        <p><strong>Start date :&nbsp</strong></p> <p class="pr-4"><%= rental.start_date.strftime('%d/%m/%Y') %></p>
-        <p><strong>End date :&nbsp</strong></p><p class="pr-4"><%= rental.end_date.strftime('%d/%m/%Y') %></p>
-        <p><strong>State :&nbsp</strong></p><p class="pr-4"><%= rental.state %></p>
-        <% if rental.state == "pending" %>
-          <div class="accept-refuse">
-            <%= link_to "Validate", validated_account_rental_path(rental), class:"btn btn-primary", method: :patch, data: { confirm: 'Are you sure?' } %>
-            <%= link_to "Refuse", refused_account_rental_path(rental), class:"btn btn-danger", method: :patch, data: { confirm: 'Are you sure?' } %>
+<div class="quote-bckg">
+  <div class="container rental-details">
+    <div class="user-rental">
+      <h2>Your rentals</h2>
+      <div class= "rental-card">
+        <% @rentals_done.each do |rental| %>
+          <div class="device-name">
+            <h3><%= rental.device.name %></h3>
+            <% if rental.state == "pending"%>
+              <p class="state-p"><%= rental.state.capitalize %></p>
+            <% elsif rental.state == "validated" %>
+              <p class="state-v"><%= rental.state.capitalize %></p>
+            <% elsif rental.state == "refused" %>
+              <p class="state-r"><%= rental.state.capitalize %></p>
+            <% end %>
+          </div>
+          <div class="description-look">
+            <div class="user-info">
+              <h5>AirFooder <%= rental.device.user.first_name %></h5>
+              <%= cl_image_tag rental.device.user.photo.key, :transformation=>[
+      {:width=>400, :height=>400, :gravity=>"face", :radius=>"max", :crop=>"crop"},
+      {:width=>200, :crop=>"scale"}
+      ], class: "avatar " %>
+              <h5>Pick-up address</h5>
+                <p><%= rental.device.user.address %></p>
+              <h5>Phone</h5>
+                <p><%= rental.device.user.phone_number %></p>
+            </div>
+              <div class="date-info">
+              <h5>Total to pay</h5>
+              <p><%= (((rental.end_date - rental.start_date).to_i) +1) * (rental.device.price) %> € for <%= (((rental.end_date - rental.start_date).to_i) +1) %> days</p>
+              <h5>Start date</h5>
+              <p><%= rental.start_date.strftime('%d/%m/%Y') %></p>
+              <h5>End date</h5>
+              <p><%= rental.end_date.strftime('%d/%m/%Y') %></p>
+            </div>
           </div>
         <% end %>
-        </div>
       </div>
     </div>
-    <% end %>
+
+    <div class="user-rental">
+      <h2>Rentals on your devices</h2>
+      <div class="rental-card">
+        <% @rentals_on_user_device.each do |rental| %>
+          <div class="device-name">
+            <h3><%= rental.device.name %></h3>
+            <% if rental.state == "pending"%>
+              <div class="accept-refuse">
+                <p class="state-p"><%= rental.state.capitalize %></p>
+                <%= link_to "Accept", validated_account_rental_path(rental), class:"btn-validation", method: :patch, data: { confirm: 'Are you sure?' } %>
+                <%= link_to "Decline", refused_account_rental_path(rental), class:"btn-refuse", method: :patch, data: { confirm: 'Are you sure?' } %>
+              </div>
+            <% elsif rental.state == "validated" %>
+              <p class="state-v"><%= rental.state.capitalize %></p>
+            <% elsif rental.state == "refused" %>
+              <p class="state-r"><%= rental.state.capitalize %></p>
+            <% end %>
+
+          <div class="description-look">
+            <div class="user-info">
+            <h5>AirFooder <%= rental.user.first_name %></h5>
+            <%= cl_image_tag rental.user.photo.key, :transformation=>[
+              {:width=>400, :height=>400, :gravity=>"face", :radius=>"max", :crop=>"crop"},
+              {:width=>200, :crop=>"scale"}
+              ], class: "avatar " %>
+
+              <h5>Address</h5>
+              <p><%= rental.device.user.address %></p>
+              <h5>Phone</h5>
+              <p><%= rental.device.user.phone_number %></p>
+            </div>
+            <div class="date-info">
+              <h5>Total earned</h5>
+              <p><%= (((rental.end_date - rental.start_date).to_i) +1) * (rental.device.price) %> € for <%= (((rental.end_date - rental.start_date).to_i) +1) %> days</p>
+              <h5>Start date</h5>
+              <p><%= rental.start_date.strftime('%d/%m/%Y') %></p>
+              <h5>End date</h5>
+              <p><%= rental.end_date.strftime('%d/%m/%Y') %></p>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
 <div>
