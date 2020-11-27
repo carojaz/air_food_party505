@@ -1,6 +1,6 @@
 <div class="info-window row">
   <h6><%= user.first_name %> rental proposals</h6>
-    <p> Call him on: <%=user.phone_number %></p>
+    <p> Call him on: <%= user.phone_number %></p>
   <% user.devices.each do |device|%>
   <div class="devices-proposal">
     <% if device.photo.attachment %>

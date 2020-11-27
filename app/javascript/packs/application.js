@@ -33,6 +33,8 @@ import { flatpickrFction } from "../plugins/flatpickr";
 import { initAutocomplete } from "../plugins/init_autocomplete"
 import { loadDynamicBannerText } from './components/banner';
 
+import { initSweetalert } from '../plugins/init_sweetalert';
+
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
@@ -41,4 +43,14 @@ document.addEventListener('turbolinks:load', () => {
   flatpickrFction();
   initAutocomplete();
   loadDynamicBannerText();
+  initSweetalert('#sweet-alert-demo', {
+  title: "Are you sure?",
+  text: "This action cannot be reversed",
+  icon: "error"
+  }, (value) => {
+  if (value) {
+    const link = document.querySelector('#delete-link');
+    link.click();
+  }
+});
 });
