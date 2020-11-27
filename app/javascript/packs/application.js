@@ -34,6 +34,7 @@ import { initAutocomplete } from "../plugins/init_autocomplete"
 import { loadDynamicBannerText } from './components/banner';
 
 import { initSweetalert } from '../plugins/init_sweetalert';
+import { initSweetalert2 } from '../plugins/init_sweetalert';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
@@ -50,6 +51,16 @@ document.addEventListener('turbolinks:load', () => {
   }, (value) => {
   if (value) {
     const link = document.querySelector('#delete-link');
+    link.click();
+  }
+});
+initSweetalert('#sweet-alert', {
+  title: "Are you sure?",
+  text: "This action cannot be reversed",
+  icon: "success"
+  }, (value) => {
+  if (value) {
+    const link = document.querySelector('#valid-link');
     link.click();
   }
 });

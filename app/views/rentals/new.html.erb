@@ -23,7 +23,7 @@
             <p>Name: <%= User.find(@device.user_id).first_name %></p>
             <p>Address: <%= User.find(@device.user_id).address %> </p>
             <p>Phone:
-              <!-- <%= User.find(@device.user_id).address %> -->
+            <%= User.find(@device.user_id).phone_number %>
             </p>
           </div>
           <div class="form-rental">
@@ -35,7 +35,7 @@
               <!-- <p class="d-none"><%= f.input_field :device_id, value: @device.id %></p> -->
             </div>
             <div class="form-actions">
-              <%= f.submit 'Send rental demand', class: 'btn-detail' %>
+              <%= f.submit '  Send rental demand  ', class: 'btn-detail' %>
             </div>
             <% end %>
           </div>

@@ -49,8 +49,11 @@
             <% if rental.state == "pending"%>
               <div class="accept-refuse">
                 <p class="state-p"><%= rental.state.capitalize %></p>
-                <%= link_to "Accept", validated_account_rental_path(rental), class:"btn-validation", method: :patch, data: { confirm: 'Are you sure?' } %>
-                <%= link_to "Decline", refused_account_rental_path(rental), class:"btn-refuse", method: :patch, data: { confirm: 'Are you sure?' } %>
+                <button id="sweet-alert" class="btn-validation">Accept</button><%= link_to "", validated_account_rental_path(rental), method: :patch, id: "valid-link", class: "hidden"  %>
+
+                <button id="sweet-alert-demo" class="btn-refuse">Decline</button><%= link_to "", refused_account_rental_path(rental), method: :patch, id: "delete-link", class: "hidden"  %>
+
+
               </div>
             <% elsif rental.state == "validated" %>
               <p class="state-v"><%= rental.state.capitalize %></p>
