@@ -1,16 +1,20 @@
 <%= render 'shared/navbar' %>
-<div class="container">
+<div class="quote-bckg">
+<div class="container form-center">
+  <h1 class="text-center pt-3">Edit the details of your device</h1>
+  <p class="text-center pt-3">Consider putting all nice info</p>
   <%= simple_form_for (@device) do |f| %>
-  <div class="form-inputs">
+  <div class="form-device">
     <%= f.input :name %>
     <%= f.association :category, collection: Category.order('name ASC') %>
     <%= f.input :price %>
     <%= f.input :description %>
     <%= f.input :pictures, as: :file, input_html: { multiple: true } %>
   </div>
-  <div class="form-actions">
-    <%= f.submit 'Edit device', class: 'btn btn-primary' %>
+  <div class="form-btn pt-2">
+    <%= f.submit 'Edit device', class: 'btn-detail' %>
   </div>
   <% end %>
+</div>
 </div>
 <%= render 'shared/footer' %>
