@@ -1,0 +1,75 @@
+.btn-detail {
+  border-radius: 25px;
+  color: white;
+  background-color: $red ;
+  text-align: center;
+  vertical-align: middle;
+  padding: 0.5em 1em;
+  margin: 0.2em;
+  height: 2.5em;
+  display: flex;
+  justify-content: space-between;
+  border: solid 0.1em $red;
+  align-content: center;
+  align-items: center;
+
+  &:hover {
+    background-color: white;
+    color: $red;
+    border: solid 0.1em $red;
+    text-decoration: none;
+  }
+
+}
+
+
+.add-device {
+  display: flex;
+  justify-content: center;
+
+  & .btn-add-device {
+    background-color: white;
+    border-radius: 25px;
+    border: solid silver 0.1em;
+    padding: 0.5em 1em;
+    margin: 0.2em;
+    height: 2.5em;
+  }
+
+  & a {
+    text-decoration: none;
+    color: gray;
+
+    &:hover {
+      color: $red;
+    }
+  }
+
+  & h5 {
+
+  }
+}
+
+.btn-light {
+  border-radius: 25px;
+  color: white;
+  background-color: transparent; ;
+  text-align: center;
+  vertical-align: middle;
+  padding: 0.5em 1em;
+  margin: 0.2em;
+  height: 2.5em;
+  display: flex;
+  justify-content: space-between;
+  border: solid 0.1em silver;
+  align-content: center;
+  align-items: center;
+
+  &:hover {
+    background-color: white;
+    color: $red;
+    border: solid 0.1em $red;
+    text-decoration: none;
+  }
+
+}

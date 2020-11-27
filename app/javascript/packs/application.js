@@ -31,7 +31,7 @@ import { initMapbox } from '../plugins/init_mapbox';
 import { showInput } from "./showInput";
 import { flatpickrFction } from "../plugins/flatpickr";
 import { initAutocomplete } from "../plugins/init_autocomplete"
-
+import { loadDynamicBannerText } from './components/banner';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
@@ -40,4 +40,5 @@ document.addEventListener('turbolinks:load', () => {
   showInput();
   flatpickrFction();
   initAutocomplete();
+  loadDynamicBannerText();
 });

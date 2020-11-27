@@ -1,32 +1,44 @@
 <%= render 'shared/navbar' %>
-<div class="container">
-  <div class="title">
-    <h1 class="text-center pt-3"><%= @device.name %></h1>
-  </div>
-  <div class="d-flex">
-    <div class="col-md-4">
-      <% if @device.photo.attachment %>
-            <%= cl_image_tag @device.photo.key, height: 300, width: 300, crop: :fill, class: 'card-img' %>
-      <% end %>
-    </div>
-      <div class="pl-3">
-        <h4>Description:</h4>
-        <p><%= @device.description %></p>
-        <h4>Price per day:</h4>
-        <p><%= @device.price %>€/day</p>
-        <% @user = User.find(@device.user_id) %>
-        <h4>Owner:</h4>
-        <p><%= @user.first_name %></p>
-        <h4>Owner address:</h4>
-        <p><%= @user.address %></p>
-        <h4>Owner phone number:</h4>
-        <p><%= @user.phone_number %></p>
+<div class="quote-bckg">
+  <div class="container">
+    <div class="show-card">
+      <div class="title">
+        <h1 class="text-center pt-3"> <%= cl_image_tag @device.user.photo.key, :transformation=>[
+      {:width=>500, :height=>500, :gravity=>"face", :radius=>"max", :crop=>"crop"},
+      {:width=>400, :crop=>"scale"}
+      ], class: "avatar-large"%>  <%= @device.name %></h1>
       </div>
-  </div>
-  <div class="pt-3 pb-3 text-center">
-      <%= link_to "New rental", new_device_rental_path(@device, @rental), class: 'btn btn-info' %>
-      <%= link_to "Edit device", edit_device_path(@device), class: 'btn btn-success'  %>
-      <%= link_to 'Destroy device', device_path(@device), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'  %>
+
+      <div class="show-info">
+        <div class="action">
+          <% if @device.photo.attachment %>
+                <%= cl_image_tag @device.photo.key, height: 300, width: 300, crop: :fill, class: 'card-img' %>
+          <% end %>
+          <div class="action-btn">
+            <%= link_to "New rental", new_device_rental_path(@device, @rental), class: 'btn-detail' %>
+            <%= link_to "Edit device", edit_device_path(@device), class: 'btn-detail'  %>
+            <%= link_to 'Destroy device', device_path(@device), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn-detail'  %>
+          </div>
+        </div>
+          <div class="device-details">
+            <div class="device-info">
+              <h4>Description</h4>
+              <p><%= @device.description %></p>
+              <h4>Price per day</h4>
+              <p><%= @device.price %>€/day</p>
+              <% @user = User.find(@device.user_id) %>
+            </div>
+            <div class="device-owner">
+              <h4>AirFooder</h4>
+                <p><%= @user.first_name %></p>
+              <h4>AirFooder address</h4>
+                <p><%= @user.address %></p>
+              <h4>AirFooder phone number</h4>
+                <p><%= @user.phone_number %></p>
+            </div>
+          </div>
+      </div>
     </div>
+  </div>
 </div>
 <%= render 'shared/footer' %>

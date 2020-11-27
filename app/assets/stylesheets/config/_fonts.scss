@@ -2,12 +2,12 @@
 @import url('https://fonts.googleapis.com/css?family=Nunito:400,700|Work+Sans:400,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,500;1,400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,500;1,400&family=Sansita&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;700&display=swap');
 // Define fonts for body and headers
-$body-font: "Work Sans", "Helvetica", "sans-serif";
-$headers-font: "Nunito", "Helvetica", "sans-serif";
+$body-font: "Dosis", "Helvetica", "sans-serif";
+$headers-font: "Dosis", "Helvetica", "sans-serif";
 $font1: 'Rubik', 'sans-serif';
-$font2: 'Sansita', 'sans-serif';
+$font2: 'Dosis', sans-serif;
 
 // To use a font file (.woff) uncomment following lines
 // @font-face {

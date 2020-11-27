@@ -1,3 +1,78 @@
+// devices index card
+
+.card-device {
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  text-align: center;
+  min-width: 21em;
+  background-color: #e5e3e3;
+
+  & p {
+    line-height: 0.8em;
+  }
+
+  & .img-device {
+    height: 14em;
+    width: 5em;
+    object-position: left top;
+    text-align: right;
+    position: relative;
+
+    & img {
+      border-radius: 10px 0px 0px 0px;
+      object-fit: cover;
+      height: 14em;
+      width: 8em;
+      position: absolute;
+      top: 0;
+      left:0;
+    }
+  }
+
+
+  & .card-title {
+    font-weight: bold;
+    height: 2em;
+    vertical-align: center;
+    text-align: center;
+    margin-bottom: 1em;
+    flex-shrink: 0;
+  }
+
+  & .card-body {
+    height: 12em;
+    padding: 1.5em;
+    flex-wrap: nowrap;
+    flex-shrink: 0;
+  }
+
+  & .price-info {
+    margin: 0.5em;
+  }
+
+  & .action {
+    display: flex;
+    padding: 20px 20px;
+    height: 4.5em;
+    justify-content: center;
+
+    & .fas {
+      padding-top: 0.65em;
+    }
+
+    & a {
+      text-decoration: none;
+    }
+  }
+  & .row {
+    border-bottom: 1px solid silver;
+  }
+}
+
+
+
+
+
 // rental form card
 
 .rental-details {
@@ -48,11 +123,121 @@
     box-shadow: 0 0 15px rgba(0,0,0,0.2);
 
     & #total {
-      font-size: 16px;
+      font-size: 24px;
+      font-weight: bold;
     }
   }
 
   & .row {
     border-bottom: none;
+  }
+}
+
+// info window on map
+.mapboxgl-popup {
+  max-width: 200px;
+}
+
+.mapboxgl-popup-content {
+  display: flex;
+}
+
+.info-window {
+  display: flex;
+  wrap: no-wrap;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  wrap: no-wrap;
+  min-width: 15em;
+  justify-content: space-around;
+  padding: 1.5em;
+
+  & .devices-proposal {
+    display:flex;
+    text-align: center;
+    align-items: center;
+    justify-content: start;
+    vertical-align: center;
+
+    & .proposal {
+      & img {
+        border-radius: 10px;
+        margin: 0.3em;
+      }
+    }
+  }
+
+  & a {
+    padding: 0.1em;
+    text-decoration: none;
+    color: $red;
+
+    &:hover {
+      ;
+    }
+  }
+}
+
+// Rental show card
+
+.show-card {
+  display: flex;
+  border: gray solid 0.1em;
+  border-radius: 25px;
+  background-color: #e5e3e3;
+  flex-direction: column;
+  margin: 0.5em;
+  padding: 0.5em;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  text-align: center;
+
+  & .show-info {
+
+    flex-direction: row;
+
+    & .action {
+      display: flex;
+      justify-content: space-evenly;
+      margin: 0.5em;
+
+      & img {
+        width: 20em;
+        border-radius: 10px;
+        position: relative;
+
+      }
+
+      & .action-btn {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 25%;
+        text-align: center;
+      }
+    }
+
+    & .device-details {
+      margin-top: 1em;
+      display: flex;
+      flex-direction: row;
+
+      & div {
+        padding: 0.5em 1em;
+        border: gray solid 0.1em;
+        border-radius: 10px;
+        margin: 0.5em;
+        background-color: #f2f2f2;
+      }
+
+      & .device-info {
+        width: 50%;
+      }
+
+      & .device-owner {
+        width: 50%;
+      }
+    }
+
   }
 }
