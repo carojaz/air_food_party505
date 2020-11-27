@@ -5,6 +5,7 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   text-align: center;
   min-width: 21em;
+  max-height: 19em;
   background-color: #e5e3e3;
 
   & p {
@@ -116,7 +117,7 @@
     width: 15em;
     border-radius: 10px;
     border: solid silver 0.1em;
-    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    background-color: #F2F2F2;
   }
 
   & .form-rental {
@@ -126,7 +127,7 @@
     width: 15em;
     border-radius: 10px;
     border: solid silver 0.1em;
-    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    background-color: #F2F2F2;
   }
 
   & .rental-datas-sumup {
@@ -136,7 +137,7 @@
     width: 15em;
     border-radius: 10px;
     border: solid silver 0.1em;
-    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    background-color: #F2F2F2;
 
     & #total {
       font-size: 24px;
@@ -257,3 +258,86 @@
 
   }
 }
+
+// rental index
+.rental-details {
+  display: flex;
+  align-items: start;
+}
+
+.user-rental {
+  margin: 1em;
+  width: 50%;
+  border: solid silver 0.1em;
+  padding: 1em;
+  background-color: #e5e3e3;
+  border-radius: 25px;
+
+  & h3 {
+    font-weight: bold;
+  }
+}
+
+.rental-card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border: solid silver 0.1em;
+  padding: 1em;
+  background-color: #f2f2f2;
+  border-radius: 25px;
+}
+
+.device-name {
+  margin: 0.5em;
+}
+
+.description-look {
+  display: flex;
+  justify-content: space-around;
+  height: 20em;
+
+  & .user-info {
+    width: 50%;
+    height: 20em;
+    border: solid silver 0.1em;
+    padding: 1em;
+    border-radius: 25px;
+    margin: 0 0.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center
+  }
+
+  & .date-info {
+    width: 50%;
+    height: 20em;
+    border: solid silver 0.1em;
+    padding: 1em;
+    border-radius: 25px;
+    margin: 0 0.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center
+  }
+
+  & h5 {
+    margin-top: 0.2em;
+  }
+}
+.accept-refuse {
+  height: 8em;
+  & a {
+    text-decoration: none;
+  }
+}
+
+
+
+
+
+
+
+

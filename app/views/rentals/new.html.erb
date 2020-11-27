@@ -1,48 +1,52 @@
 <%= render 'shared/navbar' %>
-<div class="container">
-  <div class="general-info">
-    <h1 class="text-center pt-3">
-      <%= cl_image_tag @device.photo.key, :transformation=>[
-  {:width=>500, :height=>500, :gravity=>"face", :radius=>"max", :crop=>"crop"},
-  {:width=>400, :crop=>"scale"}
-  ], class: "avatar-xl dropdown-toggle"%>
-      When do you like to enjoy the <%= @device.name %> </h1>
-      <p class="text-center pt-3"> Remember details of the device: <%= @device.description %> </p>
-  </div>
-  <div class="rental-details">
-    <div class="row">
-      <div class="owner-info">
-        <h4>Details of AirFooder</h4>
-        <p> <%= cl_image_tag @device.user.photo.key, :transformation=>[
-  {:width=>500, :height=>500, :gravity=>"face", :radius=>"max", :crop=>"crop"},
-  {:width=>400, :crop=>"scale"}
-  ], class: "avatar-large dropdown-toggle"%>
-        </p>
-        <p>Name: <%= User.find(@device.user_id).first_name %></p>
-        <p>Address: <%= User.find(@device.user_id).address %> </p>
-        <p>Phone:
-          <!-- <%= User.find(@device.user_id).address %> -->
-        </p>
+<div class="quote-bckg">
+  <div class="container">
+    <div class="show-card">
+      <div class="general-info">
+        <h1 class="text-center pt-3">
+          <%= cl_image_tag @device.photo.key, :transformation=>[
+      {:width=>500, :height=>500, :gravity=>"face", :radius=>"max", :crop=>"crop"},
+      {:width=>400, :crop=>"scale"}
+      ], class: "avatar-xl dropdown-toggle"%>
+          When do you like to enjoy the <%= @device.name %> </h1>
+          <p class="text-center pt-3"> Remember details of the device: <%= @device.description %> </p>
       </div>
-      <div class="form-rental">
-        <h4>Date of rental</h4>
-        <%= simple_form_for([@device, @rental]) do |f| %>
-        <div class="form-inputs">
-          <%= f.input :start_date,  as: :string, required: true, input_html: {class: "datepicker"} %>
-          <%= f.input :end_date,  as: :string, required: true, input_html: {class: "datepicker"} %>
-          <!-- <p class="d-none"><%= f.input_field :device_id, value: @device.id %></p> -->
-        </div>
-        <div class="form-actions">
-          <%= f.submit 'Send rental demand', class: 'btn-detail' %>
-        </div>
-        <% end %>
-      </div>
-      <div class="rental-datas-sumup">
-          <h4>Your rental</h4>
-        <div class="rental-datas" data-price = "<%= @device.price %>">
-          <p> Please enter start date and end date </p>
-        </div>
+      <div class="rental-details">
+        <div class="row">
+          <div class="owner-info">
+            <h4>Details of AirFooder</h4>
+            <p> <%= cl_image_tag @device.user.photo.key, :transformation=>[
+      {:width=>500, :height=>500, :gravity=>"face", :radius=>"max", :crop=>"crop"},
+      {:width=>400, :crop=>"scale"}
+      ], class: "avatar-large dropdown-toggle"%>
+            </p>
+            <p>Name: <%= User.find(@device.user_id).first_name %></p>
+            <p>Address: <%= User.find(@device.user_id).address %> </p>
+            <p>Phone:
+            <%= User.find(@device.user_id).phone_number %>
+            </p>
+          </div>
+          <div class="form-rental">
+            <h4>Date of rental</h4>
+            <%= simple_form_for([@device, @rental]) do |f| %>
+            <div class="form-inputs">
+              <%= f.input :start_date,  as: :string, required: true, input_html: {class: "datepicker"} %>
+              <%= f.input :end_date,  as: :string, required: true, input_html: {class: "datepicker"} %>
+              <!-- <p class="d-none"><%= f.input_field :device_id, value: @device.id %></p> -->
+            </div>
+            <div class="form-actions">
+              <%= f.submit '  Send rental demand  ', class: 'btn-detail' %>
+            </div>
+            <% end %>
+          </div>
+          <div class="rental-datas-sumup">
+              <h4>Your rental</h4>
+            <div class="rental-datas" data-price = "<%= @device.price %>">
+              <p> Please enter start date and end date </p>
+            </div>
 
+          </div>
+        </div>
       </div>
     </div>
   </div>
