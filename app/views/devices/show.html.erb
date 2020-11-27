@@ -17,7 +17,8 @@
           <div class="action-btn">
             <%= link_to "New rental", new_device_rental_path(@device, @rental), class: 'btn-detail' %>
             <%= link_to "Edit device", edit_device_path(@device), class: 'btn-detail'  %>
-            <%= link_to 'Destroy device', device_path(@device), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn-detail'  %>
+            <button id="sweet-alert-demo" class="btn-detail">Destroy device</button>
+            <%= link_to "", device_path(@device), method: :delete, id: "delete-link", class: "hidden" %>
           </div>
         </div>
           <div class="device-details">
