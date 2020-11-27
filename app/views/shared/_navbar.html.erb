@@ -1,27 +1,37 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <%= link_to devices_path, class: "navbar-brand" do %>
-    <%= image_tag "https://www.flaticon.com/svg/static/icons/svg/3754/3754009.svg" %>
-    <% end %>
-
+  <div>
+    <%= link_to devices_path, class: "navbar-brand" do %>
+      <%= image_tag "https://www.flaticon.com/svg/static/icons/svg/3754/3754009.svg" %>
+      <% end %>
+  </div>
+  <%= link_to "AirFoodParty", "/", class: 'navbar-brand navbar-title'  %>
+  <div class="search-form">
     <%= form_tag devices_path, method: :get do %>
-    <%= text_field_tag :query,
-      params[:query],
-      class: "form-control",
-      placeholder: "What do you search?"
-    %>
-    <%= text_field_tag :address,
-      params[:address],
-      class: "form-control",
-      placeholder: "Address?"
-    %>
-    <%= submit_tag "Search", class: "btn btn-primary" %>
-    <% end %>
+    <div class="fields">
+      <div class="search-input">
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "What do you search?"
+        %>
+      </div >
+      <div class="search-input">
+        <%= text_field_tag :address,
+          params[:address],
+          class: "form-control",
+          placeholder: "Address?"
+        %>
+      </div >
+         <%= submit_tag "Search", class: "search-input btn-detail" %>
+        <% end %>
+    </div>
+  </div>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <%= link_to "AirFoodParty", "/", class: 'navbar-brand navbar-title'  %>
+
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
@@ -40,7 +50,7 @@
             <%= cl_image_tag "https://pbs.twimg.com/profile_images/1092451626781163523/0YzJMi-8_400x400.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <% end %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "Profile", "#", class: "dropdown-item" %>
+            <%= link_to "Profile", edit_user_registration_path, class: "dropdown-item" %>
             <%= link_to "My rentals", account_rentals_path, class: "dropdown-item" %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>

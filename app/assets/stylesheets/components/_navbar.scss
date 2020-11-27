@@ -1,7 +1,10 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
-
+  align-content: center;
+  // position: fixed;
+  // top: 0;
+  // width: 100%;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -18,3 +21,28 @@
   font-size: 30px;
 }
 
+.search-form {
+  width: 40em;
+  padding: 0.5em;
+  height: 4em;
+  align-items: start;
+
+  & .fields {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  height: 3.3em;
+  align-items: center;
+
+    & .search-input {
+      margin-left: 1em;
+      height: 2.5em;
+      align-items: start;
+
+    }
+  }
+
+  & .form-control {
+    border-radius: 25px;
+  }
+}
